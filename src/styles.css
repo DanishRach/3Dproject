@@ -1,5 +1,9 @@
 @import url('https://rsms.me/inter/inter.css');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
 }
@@ -65,4 +69,17 @@ input {
 input:focus {
   outline: none;
   box-shadow: none !important;
+}
+
+@font-face {
+  font-family: "Zentry";
+  src: url("/zentry-regular.woff2") format("woff2"),
+       url("/zentry-regular.woff2") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-feature-settings: "ss01" on;
+}
+
+.indicator-line {
+  @apply h-1 w-px rounded-full bg-white transition-all duration-200 ease-in-out;
 }

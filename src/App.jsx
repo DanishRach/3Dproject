@@ -1,13 +1,16 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, MeshReflectorMaterial, BakeShadows } from "@react-three/drei";
+import {
+  useGLTF,
+  MeshReflectorMaterial,
+  BakeShadows,
+  Text,
+} from "@react-three/drei";
 import {
   EffectComposer,
   Bloom,
   DepthOfField,
-  ToneMapping,
 } from "@react-three/postprocessing";
 import { easing } from "maath";
-import { suspend } from "suspend-react";
 import { Instances, Computers } from "./Computer";
 
 export default function App() {
@@ -79,10 +82,14 @@ export default function App() {
       <CameraRig />
       {/* Small helper that freezes the shadows for better performance */}
       <BakeShadows />
+
+      {/* Camera-following text */}
+      <CameraText />
     </Canvas>
   );
 }
 
+// Camera Rig for movement and looking at the center
 function CameraRig() {
   useFrame((state, delta) => {
     easing.damp3(
@@ -97,4 +104,33 @@ function CameraRig() {
     );
     state.camera.lookAt(0, 0, 0);
   });
+}
+
+// Camera-following text component
+function CameraText() {
+  return (
+    <>
+      {/* Main Text */}
+      <Text
+        position={[0, 0.5, 1.8]} // Adjust Z-axis for closeness
+        fontSize={0.5} // Font size of main text
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+      >
+        Danish As-Salafy Rachman
+      </Text>
+
+      {/* Additional Text */}
+      <Text
+        position={[0, 0.1, 1.8]} // Slightly below the main text
+        fontSize={0.2} // Smaller font size for subtext
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+      >
+        A creative Front-end developer and website designer
+      </Text>
+    </>
+  );
 }

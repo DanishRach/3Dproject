@@ -1,48 +1,51 @@
 import { createRoot } from "react-dom/client";
-import "./styles.css";
+import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import "./styles.css"; // Pastikan font didefinisikan di sini
+import PreLoader from "./components/PreLoader";
 import App from "./App";
 
 function Overlay() {
+  const [visible, setVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+      const locomotiveScroll = new LocomotiveScroll();
+
+      setTimeout(() => {
+        setIsLoading(false);
+        document.body.style.cursor = "default";
+        window.scrollTo(0, 0);
+      }, 2000);
+    })();
+  }, []);
+
+  useEffect(() => {
+    // Tampilkan teks setelah 5 detik
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, 3000);
+
+    // Bersihkan timer ketika komponen unmount
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <a
-        href="https://pmnd.rs/"
-        style={{ position: "absolute", bottom: 40, left: 90, fontSize: "13px" }}
-      >
-        pmnd.rs
-        <br />
-        dev collective
-      </a>
-      <div
-        style={{ position: "absolute", top: 40, left: 40, fontSize: "13px" }}
-      >
-        ok —
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          bottom: 40,
-          right: 40,
-          fontSize: "13px",
-        }}
-      >
-        16/12/2022
-      </div>
+    <div>
+      <AnimatePresence mode="wait">
+        {isLoading && <PreLoader />}
+      </AnimatePresence>
     </div>
   );
 }
 
 createRoot(document.getElementById("root")).render(
   <>
-    <App />
-    <Overlay />
+    <>
+      <App />
+      <Overlay />
+    </>
   </>
 );
