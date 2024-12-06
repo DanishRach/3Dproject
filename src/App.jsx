@@ -15,6 +15,7 @@ import { Instances, Computers } from "./Computer";
 export default function App() {
   return (
     <>
+      {/* Main Canvas 3D Scene */}
       <Canvas
         shadows
         dpr={[1, 1.5]}
@@ -86,35 +87,6 @@ export default function App() {
         {/* Camera-following text */}
         <CameraText />
       </Canvas>
-
-      {/* Scrollable content below the canvas */}
-      <div
-        style={{
-          height: '100vh',
-          overflowY: 'auto',
-          padding: '20px',
-          backgroundColor: 'black',
-          color: 'white',
-        }}
-      >
-        <h1>Welcome to the Scrollable Page</h1>
-        <p>
-          This is a new section that you can scroll below the 3D scene.
-          You can add more content here, like text, images, or other components.
-        </p>
-        <p>
-          Scroll down to see more content. You can make this page as long as needed.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate urna vel neque efficitur, vel viverra ante vulputate. Ut et velit sem. Nunc et ligula at purus euismod maximus et ut lectus.
-        </p>
-        <p>
-          Curabitur malesuada massa et dui varius, non fermentum risus pretium. Ut sollicitudin hendrerit nisl sit amet rhoncus. In at sapien magna. Nulla facilisi.
-        </p>
-        <p>
-          Continue scrolling for more content. You can add a variety of components and elements in this section!
-        </p>
-      </div>
     </>
   );
 }

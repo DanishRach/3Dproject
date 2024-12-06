@@ -34,7 +34,8 @@ a {
 }
 
 svg {
-  fill: #f0f0f0;
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes fade-in {
@@ -78,4 +79,19 @@ input:focus {
   font-weight: normal;
   font-style: normal;
   font-feature-settings: "ss01" on;
+}
+
+@media only screen and (max-aspect-ratio: 8/7) {
+  main {
+    flex-direction: column;
+  }
+  .canvas {
+    order: 1;
+  }
+  svg {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    height: 60vh;
+  }
 }

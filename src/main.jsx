@@ -5,6 +5,64 @@ import "./styles.css"; // Pastikan font didefinisikan di sini
 import PreLoader from "./components/PreLoader";
 import App from "./App";
 
+function Navbar() {
+  return (
+    <nav
+      style={{
+        marginLeft: 10,
+        marginTop: 20,
+        padding: "1rem",
+        color: "#fff",
+        backgroundColor: "transparent",
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        zIndex: 10,
+      }}
+    >
+      <ul
+        style={{
+          display: "flex",
+          listStyle: "none",
+          margin: 0,
+          padding: 0,
+        }}
+      >
+        <li style={{ margin: "0 1rem" }}>
+          <a
+            href="https://webiste-gamers.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            Home
+          </a>
+        </li>
+        <li style={{ margin: "0 1rem" }}>
+          <a
+            href="https://github.com/DanishRach/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            About
+          </a>
+        </li>
+        <li style={{ margin: "0 1rem" }}>
+          <a
+            href="https://github.com/DanishRach/contact"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
 function Overlay() {
   const [visible, setVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +81,7 @@ function Overlay() {
   }, []);
 
   useEffect(() => {
-    // Tampilkan teks setelah 5 detik
+    // Tampilkan teks setelah 3 detik
     const timer = setTimeout(() => {
       setVisible(true);
     }, 3000);
@@ -37,15 +95,15 @@ function Overlay() {
       <AnimatePresence mode="wait">
         {isLoading && <PreLoader />}
       </AnimatePresence>
+      {!isLoading}
     </div>
   );
 }
 
 createRoot(document.getElementById("root")).render(
   <>
-    <>
-      <App />
-      <Overlay />
-    </>
+    <Overlay />
+    <Navbar />
+    <App />
   </>
 );
