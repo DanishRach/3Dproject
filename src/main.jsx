@@ -40,7 +40,7 @@ function Navbar() {
         </li>
         <li style={{ margin: "0 1rem" }}>
           <a
-            href=""
+            href="https://3d-project-page.vercel.app/"
             target=""
             rel="noopener noreferrer"
             style={{ color: "#fff", textDecoration: "none" }}
