@@ -30,18 +30,8 @@ function Navbar() {
       >
         <li style={{ margin: "0 1rem" }}>
           <a
-            href="https://webiste-gamers.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "#fff", textDecoration: "none" }}
-          >
-            Home
-          </a>
-        </li>
-        <li style={{ margin: "0 1rem" }}>
-          <a
-            href="https://github.com/DanishRach/about"
-            target="_blank"
+            href="https://about-page-tawny.vercel.app/"
+            target=""
             rel="noopener noreferrer"
             style={{ color: "#fff", textDecoration: "none" }}
           >
@@ -50,12 +40,70 @@ function Navbar() {
         </li>
         <li style={{ margin: "0 1rem" }}>
           <a
-            href="https://github.com/DanishRach/contact"
+            href=""
+            target=""
+            rel="noopener noreferrer"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            My Project 
+          </a>
+        </li>
+        <li style={{ margin: "0 1rem" }}>
+          <a
+            href="https://game-3d-danish.vercel.app/"
+            target=""
+            rel="noopener noreferrer"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            Game 
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+function Navbar2() {
+  return (
+    <nav
+      style={{
+        marginLeft: 1280,
+        marginTop: 20,
+        padding: "1rem",
+        color: "#fff",
+        backgroundColor: "transparent",
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        zIndex: 10,
+      }}
+    >
+      <ul
+        style={{
+          display: "flex",
+          listStyle: "none",
+          margin: 0,
+          padding: 0,
+        }}
+      >
+        <li style={{ margin: "0 1rem" }}>
+          <a
+            href="https://github.com/DanishRach"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "#fff", textDecoration: "none" }}
           >
-            Contact
+            Github
+          </a>
+        </li>
+        <li style={{ margin: "0 1rem" }}>
+          <a
+            href="https://www.linkedin.com/in/danish-rachman?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#fff", textDecoration: "none" }}
+          >
+            Linkedin
           </a>
         </li>
       </ul>
@@ -104,6 +152,7 @@ createRoot(document.getElementById("root")).render(
   <>
     <Overlay />
     <Navbar />
+    <Navbar2 />
     <App />
   </>
 );
