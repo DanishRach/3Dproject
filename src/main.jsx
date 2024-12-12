@@ -67,7 +67,7 @@ function Navbar2() {
   return (
     <nav
       style={{
-        marginLeft: 1280,
+        marginLeft: 1600,
         marginTop: 20,
         padding: "1rem",
         color: "#fff",
